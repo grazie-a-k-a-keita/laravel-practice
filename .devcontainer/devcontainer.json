@@ -1,40 +1,52 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/php-mariadb
 {
-  "name": "PHP & MariaDB",
-  "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "name": "PHP & MariaDB",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
-  // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
 
-  // For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
-  "forwardPorts": [8080, 3306],
-  "features": {
-    "ghcr.io/devcontainers-extra/features/composer:1": {}
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "bmewburn.vscode-intelephense-client",
-        "xdebug.php-debug",
-        "neilbrayfield.php-docblocker"
-      ],
-      "settings": {
-        "[php]": {
-          "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    // For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
+    "forwardPorts": [8080, 3306],
+    "features": {
+        "ghcr.io/devcontainers-extra/features/composer:1": {},
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
         }
-      }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client",
+                "xdebug.php-debug",
+                "neilbrayfield.php-docblocker",
+                "mhutchie.git-graph",
+                "onecentlin.laravel-extension-pack",
+                "esbenp.prettier-vscode",
+                "formulahendry.auto-close-tag",
+                "formulahendry.auto-rename-tag",
+                "streetsidesoftware.code-spell-checker"
+            ],
+            "settings": {
+                "[php]": {
+                    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+                },
+                "[blade]": {
+                    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+                }
+            }
+        }
     }
-  }
 
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
 
-  // Configure tool-specific properties.
-  // "customizations": {},
+    // Configure tool-specific properties.
+    // "customizations": {},
 
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
 }
